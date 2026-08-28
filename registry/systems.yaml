@@ -1,0 +1,199 @@
+asset_id: REG-SYSTEMS
+asset_type: system_registry
+authority: personal-ai-governance
+scope: root
+status: active
+schema_version: "0.2"
+updated: "2026-08-28"
+
+systems:
+  personal-ai-governance:
+    display_name: "Personal AI Governance"
+    chinese_name: "个人 AI 总治理"
+    purpose: "管理核心资产、系统地图、Project 路由、正式真源与治理演进。"
+    governance_level: G2
+    canonical_repo: "jueduihouqi-GG/personal-ai-governance"
+    canonical_status: established
+    shared_systems:
+      - ai-engine
+    operational_sources: []
+    data_boundary: personal_private
+    writeback_policy: human-approved
+    review_cadence: "90d"
+    review_triggers:
+      - new_system
+      - repo_boundary_change
+      - root_rule_change
+      - major_failure
+    runtimes:
+      architecture-control-room:
+        type: chatgpt_project
+        display_name: "AI问题综合解决"
+        retrieval_mode: selective
+
+  ai-engine:
+    display_name: "AI Engine KB"
+    chinese_name: "AI 引擎知识库"
+    purpose: "沉淀 AI 工程 Principle、Knowledge、Pattern、Playbook 与能力事实。"
+    governance_level: G2
+    canonical_repo: "jueduihouqi-GG/ai-engine-kb"
+    canonical_status: established
+    shared_systems: []
+    operational_sources:
+      - web_research
+      - project_observations
+    data_boundary: personal_private
+    writeback_policy: human-approved
+    review_cadence: "90d"
+    review_triggers:
+      - major_model_change
+      - new_runtime
+      - phase_gate
+    runtimes:
+      architecture-research:
+        type: chatgpt_chat
+        display_name: "AI 架构研究"
+        retrieval_mode: selective
+      ai-radar:
+        type: chatgpt_chat
+        display_name: "AI Radar"
+        retrieval_mode: open
+      librarian:
+        type: chatgpt_chat
+        display_name: "AI Knowledge Librarian"
+        retrieval_mode: grounded
+
+  external-brain:
+    display_name: "RPG External Brain"
+    chinese_name: "RPG 外脑"
+    purpose: "研发 Memory、Context Compilation、Safe Writeback 与多源 Intake 外脑内核。"
+    governance_level: G3
+    canonical_repo: "jueduihouqi-GG/rpg-external-brain"
+    canonical_status: established
+    shared_systems:
+      - ai-engine
+    operational_sources:
+      - rpg_database
+      - natural_language
+      - game_api_or_cmd_candidate
+      - screenshot_ocr_candidate
+    data_boundary: personal_private
+    writeback_policy: strict-safe-writeback
+    review_cadence: "phase_gate"
+    review_triggers:
+      - phase_gate
+      - tier1_regression
+      - architecture_change
+    runtimes:
+      local-program:
+        type: program
+        display_name: "rpg-external-brain"
+        retrieval_mode: strict
+      codex:
+        type: coding_agent
+        display_name: "Codex"
+        retrieval_mode: strict
+      bg3-chat:
+        type: chatgpt_project
+        display_name: "博德之门3"
+        retrieval_mode: selective
+      web-ui:
+        type: web
+        display_name: "RPG Web UI"
+        retrieval_mode: grounded
+
+  project-review:
+    display_name: "Project Review System"
+    chinese_name: "项目审查系统"
+    purpose: "统一管理审查 Principle、Rule、Knowledge、Template、Workflow 与 Agent。"
+    governance_level: G3
+    canonical_repo: "jueduihouqi-GG/project-review-system"
+    canonical_status: planned_next
+    shared_systems:
+      - ai-engine
+    operational_sources:
+      - current_conversation_uploads
+      - local_agent_files
+      - company_authorized_storage
+    data_boundary: mixed_company_sensitive
+    writeback_policy: human-approved
+    review_cadence: "90d"
+    review_triggers:
+      - rule_conflict
+      - policy_change
+      - recurring_error
+      - phase_gate
+    restrictions:
+      - "未经授权的公司原始材料、客户资料和内部敏感文件不得上传个人 GitHub。"
+      - "优先迁移通用规则、脱敏知识、模板结构、Skill 和程序。"
+    runtimes:
+      review-chat:
+        type: chatgpt_project
+        display_name: "辅助撰写审查报告"
+        retrieval_mode: grounded
+      review-agent:
+        type: local_agent
+        display_name: "项目审查 Agent"
+        retrieval_mode: strict
+
+  personal-growth:
+    display_name: "Personal Growth System"
+    chinese_name: "个人原则与成长操作系统"
+    purpose: "管理个人 Principle、成长复盘、生活助手、TickTick 与未来 WorkBuddy 执行。"
+    governance_level: G1
+    canonical_repo: null
+    canonical_status: deferred
+    shared_systems:
+      - ai-engine
+    operational_sources:
+      - ticktick
+      - natural_language
+      - future_connectors
+    data_boundary: personal_sensitive
+    writeback_policy: human-approved
+    review_cadence: "deferred"
+    review_triggers:
+      - runtime_boundary_stable
+      - repeated_core_assets
+    runtimes:
+      local-prototype:
+        type: local_agent
+        display_name: "个人原则与成长操作系统"
+        retrieval_mode: selective
+      life-assistant:
+        type: chatgpt_project
+        display_name: "生活小助手"
+        retrieval_mode: selective
+      ticktick:
+        type: operational_system
+        display_name: "滴答清单"
+        retrieval_mode: strict
+
+  market-risk:
+    display_name: "Market Risk System"
+    chinese_name: "市场风险管理系统"
+    purpose: "以线上 Chat 作为大脑，以 WorkBuddy/程序作为统计与管理执行基座。"
+    governance_level: G1
+    canonical_repo: null
+    canonical_status: deferred
+    shared_systems:
+      - ai-engine
+    operational_sources:
+      - authorized_work_files
+      - valuation_sheets
+      - company_local_storage
+    data_boundary: company_sensitive
+    writeback_policy: human-approved
+    review_cadence: "deferred"
+    review_triggers:
+      - domain_boundary_stable
+      - production_program_ready
+    runtimes:
+      market-risk-chat:
+        type: chatgpt_project
+        display_name: "市场风险管理办法"
+        retrieval_mode: grounded
+      workbuddy-demo:
+        type: local_agent
+        display_name: "WorkBuddy 丰裕6号估值表 Demo"
+        retrieval_mode: strict
