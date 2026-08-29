@@ -1,7 +1,7 @@
 ---
 document_role: navigation_only
 status: active
-version: "0.2"
+version: "0.2.1"
 ---
 
 # Personal AI Governance
@@ -18,7 +18,7 @@ version: "0.2"
 |---|---|---|
 | `GOV-ROOT` | `governance/00_root-rules.md` | 零级规则与最高治理边界 |
 | `GOV-CONCEPTS` | `governance/10_core-concepts.md` | 唯一术语与概念定义 |
-| `GOV-ASSET-ARCH` | `governance/20_asset-architecture.md` | 核心资产准入、单一语义真源、树状主干与交叉层 |
+| `GOV-ASSET-ARCH` | `governance/20_asset-architecture.md` | 核心资产准入、单一语义真源、树状主干、交叉层与用户可读展示板 |
 | `GOV-CHANGE` | `governance/30_change-control.md` | Principle、Rule、Routing 和 Repo 变更治理 |
 | `GOV-PROJECT` | `governance/40_project-governance-and-retrieval.md` | Project 入驻、Binding、检索模式与周期复核 |
 | `GOV-SOURCE` | `governance/50_source-authority.md` | GitHub、Operational Source、文件库与人的权威边界 |
@@ -26,6 +26,7 @@ version: "0.2"
 | `REG-SYSTEMS` | `registry/systems.yaml` | 当前系统、Runtime 与 Repo 路由的唯一登记表 |
 | `ARCH-CANDIDATES` | `architecture/candidates.md` | 尚未冻结、需要真实运行验证的架构候选 |
 | `ADR-0001` | `decisions/ADR-0001-governance-v0.2.md` | V0.2 架构决策及保留事项 |
+| `ADR-0002` | `decisions/ADR-0002-user-readable-control-boards.md` | 面向用户的治理展示板必须提供中文视图 |
 
 ## V0.2 的核心选择
 
@@ -35,6 +36,7 @@ version: "0.2"
 - 资产主结构采用“树状主干 + 横向交叉层”，逻辑上视为可追溯的有向无环依赖图。
 - 修改任何实质性规则前，必须全面检索相关 MD、依赖、下游 Workflow、Skill、Agent、Program 和 Projection。
 - 日常开放思考不强制先读全部规则；根据后果和 Runtime 模式按需检索。
+- 面向用户的状态板、控制板、迁移板和审批板必须提供中文展示视图；机器可读状态可以并存，但两者必须同源。
 - 当前分类、路由和 Repo 关系是 V0.2，可通过 Git 历史持续修改。
 
 ## 当前近期顺序
