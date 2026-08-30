@@ -4,7 +4,7 @@ asset_type: asset_governance
 authority: personal-ai-governance
 scope: root
 status: active
-version: "0.2.1"
+version: "0.2.2"
 depends_on:
   - GOV-ROOT
   - GOV-CONCEPTS
@@ -201,6 +201,8 @@ Cross-cutting Asset 只在确有跨域依赖时创建。
    - `FAIL` → 未通过。
 6. **不得只展示代码式状态。** 即使机器状态准确，只要该视图的目的包含让用户阅读、审核、批准或控制，就必须增加中文解释层。
 7. **冲突处理。** 若中文展示板与机器状态或 Canonical Source 不一致，应停止依赖该展示板作出正式决策，修正生成逻辑并重新生成；中文展示板本身不获得独立 Canonical Authority。
+
+跨 Chat 或跨 Runtime 的协调接力控制板还必须执行 `GOV-BATON`。接力语义、Authority、最小状态、Fail Closed 与来源隔离由该 Cross-cutting Asset 唯一维护；本文件只维护所有用户可读展示板共同适用的 Projection 规则。
 
 推荐展示顺序：
 

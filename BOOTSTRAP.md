@@ -4,11 +4,12 @@ asset_type: bootstrap_protocol
 authority: personal-ai-governance
 scope: root
 status: active
-version: "0.2.1"
+version: "0.2.2"
 depends_on:
   - GOV-ROOT
   - GOV-PROJECT
   - GOV-ASSET-ARCH
+  - GOV-BATON
   - REG-SYSTEMS
 ---
 
@@ -44,7 +45,7 @@ Primary Repo、Shared Systems、检索强度和写回策略不得在多个 Proje
 5. 不默认全量加载所有 Repo 或所有 MD。
 6. 若任务触及正式变更，转入 `GOV-CHANGE`。
 7. 若身份、路由、权限或真源冲突，不得猜测性写回。
-8. 当 Runtime 输出状态板、控制板、架构快照、迁移状态、审批状态、Backlog 或类似面向用户的治理视图时，执行 `GOV-ASSET-ARCH` 的“用户可读展示板”规则；可以保留机器可读字段、英文键名或英文枚举，但必须同时提供面向用户的中文展示板。
+8. 当 Runtime 输出状态板、控制板、架构快照、迁移状态、审批状态、Backlog 或类似面向用户的治理视图时，执行 `GOV-ASSET-ARCH` 的“用户可读展示板”规则；可以保留机器可读字段、英文键名或英文枚举，但必须同时提供面向用户的中文展示板。若该视图用于一个总控 Runtime 与一个或多个执行 Runtime 的接力控制，还必须按 `GOV-PROJECT` 的触发条件读取并执行 `GOV-BATON`。
 
 ## 3. 非受治理 Project
 
