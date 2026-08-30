@@ -4,7 +4,7 @@ asset_type: asset_governance
 authority: personal-ai-governance
 scope: root
 status: active
-version: "0.2.1"
+version: "0.2.3"
 depends_on:
   - GOV-ROOT
   - GOV-CONCEPTS

@@ -4,7 +4,7 @@ asset_type: canonical_dictionary
 authority: personal-ai-governance
 scope: root
 status: active
-version: "0.2"
+version: "0.3.1"
 depends_on: []
 ---
 
@@ -176,3 +176,23 @@ Operational Source 不等同于 Canonical Source。
 一个 Formal Object 的正式含义、行为或正确性需要另一个 Asset 成立的关系。
 
 V0.2 使用 `depends_on` 单向记录依赖；反向影响通过搜索 Asset ID 推导，避免维护双份关系。
+
+### `CON-028` — Coordination Baton｜协调接力棒
+
+表示一个跨 Runtime 工作流当前由谁负责完成全局下一项协调动作的受控状态。
+
+### `CON-029` — Execution Baton｜执行接力棒
+
+表示某一独立执行项当前由谁负责完成该执行项下一项动作的受控状态。
+
+### `CON-030` — Handoff｜交接
+
+将协调接力棒或执行接力棒从一个已知 Holder 受控转移给另一个已知 Holder，并同时声明预期动作与回传入口的过程。
+
+### `CON-031` — Last Valid Handoff｜最近一次有效交接
+
+最近一次满足适用 Authority、身份、证据、预期动作与回传入口要求，且满足有效交接确认标准的交接记录。有效交接的确认标准为：接收方确认；或用户基于可追溯送达证据确认交接完成。
+
+### `CON-032` — Baton Control Board｜接力控制板
+
+从当前运行状态生成、供用户查看接力归属、执行状态、下一步、回传入口与冲突情况的非 Canonical Projection。

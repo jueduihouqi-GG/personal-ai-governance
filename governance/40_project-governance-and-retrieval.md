@@ -4,12 +4,13 @@ asset_type: project_and_retrieval_governance
 authority: personal-ai-governance
 scope: root
 status: active
-version: "0.2"
+version: "0.2.2"
 depends_on:
   - GOV-ROOT
   - GOV-CONCEPTS
   - GOV-ASSET-ARCH
   - GOV-CHANGE
+  - GOV-BATON
   - REG-SYSTEMS
 ---
 
@@ -127,6 +128,9 @@ runtime_id: example-runtime
 6. 涉及跨 System 架构；
 7. Project Memory 与 Canonical Source 可能冲突；
 8. 用户明确要求按正式真源回答。
+9. 任务使用一个总控 Runtime 与一个或多个执行 Runtime，并需要判断接力归属、回传入口或闭环状态。
+
+第 9 项触发时必须按需读取 `GOV-BATON`。V0 当前状态证据只可来自用户显式 Handoff、当前 Runtime 在自身 Authority 内的直接声明，或未来明确登记的 Operational Source。LIFE Workspace 只是用户操作的状态汇总与展示入口，不是其他 Runtime 可直接读取的共享 Operational Source；用户从 LIFE Workspace 发起 Handoff 时仍必须保留可追溯来源与送达证据。只读取协议、LIFE Workspace 展示或 Chat Memory 均不足以证明另一个 Runtime 的当前状态；状态来源不满足要求时必须 Fail Closed。
 
 ## 6. 保留发散能力
 
