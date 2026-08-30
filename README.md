@@ -1,7 +1,7 @@
 ---
 document_role: navigation_only
 status: active
-version: "0.2.2"
+version: "0.2.3"
 ---
 
 # Personal AI Governance
@@ -40,7 +40,7 @@ version: "0.2.2"
 - 修改任何实质性规则前，必须全面检索相关 MD、依赖、下游 Workflow、Skill、Agent、Program 和 Projection。
 - 日常开放思考不强制先读全部规则；根据后果和 Runtime 模式按需检索。
 - 面向用户的状态板、控制板、迁移板和审批板必须提供中文展示视图；机器可读状态可以并存，但两者必须同源。
-- 跨 Runtime 接力的 V0 协议由 `GOV-BATON` 统一维护；当前状态属于 Operational Source，Root Governance Repo 不保存实时接力状态。
+- 跨 Runtime 接力的 V0 协议由 `GOV-BATON` 统一维护；V0 状态证据来自用户显式 Handoff、当前 Runtime 在自身 Authority 内的直接声明或未来正式登记的 Operational Source，LIFE Workspace 只作为用户汇总与展示入口，Root Governance Repo 不保存实时接力状态。
 - 当前分类、路由和 Repo 关系是 V0.2，可通过 Git 历史持续修改。
 
 ## 当前近期顺序

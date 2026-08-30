@@ -4,7 +4,7 @@ asset_type: canonical_dictionary
 authority: personal-ai-governance
 scope: root
 status: active
-version: "0.3"
+version: "0.3.1"
 depends_on: []
 ---
 
@@ -191,7 +191,7 @@ V0.2 使用 `depends_on` 单向记录依赖；反向影响通过搜索 Asset ID 
 
 ### `CON-031` — Last Valid Handoff｜最近一次有效交接
 
-最近一次满足适用 Authority、身份、证据、预期动作与回传入口要求，且已被接收方确认的交接记录。
+最近一次满足适用 Authority、身份、证据、预期动作与回传入口要求，且满足有效交接确认标准的交接记录。有效交接的确认标准为：接收方确认；或用户基于可追溯送达证据确认交接完成。
 
 ### `CON-032` — Baton Control Board｜接力控制板
 

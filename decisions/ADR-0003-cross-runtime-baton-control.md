@@ -4,7 +4,7 @@ asset_type: architecture_decision
 authority: personal-ai-governance
 scope: root
 status: accepted
-version: "1.0"
+version: "1.1"
 depends_on:
   - GOV-BATON
   - GOV-SOURCE
@@ -26,12 +26,15 @@ depends_on:
 1. 将 `CAND-008` 的 V0 协议晋升为独立 Cross-cutting Asset `GOV-BATON`。
 2. `GOV-BATON` 作为 V0 接力语义、Authority、Schema、用户视图要求、Fail Closed、来源隔离与多执行位规则的唯一 Canonical Owner。
 3. 相关术语只在 `GOV-CONCEPTS` 定义；其他资产通过 Concept ID 或 `GOV-BATON` 引用。
-4. GitHub 只保存协议、Schema、ADR 与 Eval。当前接力状态保存在 LIFE Workspace 或未来明确登记的共享 Operational Source。
+4. GitHub 只保存协议、Schema、ADR 与 Eval。V0 状态证据只来自用户显式 Handoff、当前 Runtime 在自身 Authority 内的直接声明，或未来明确登记的 Operational Source。
 5. 接力控制板是当前状态的非 Canonical Projection，只展示、不产生状态。
 6. `REG-SYSTEMS` 不记录临时工作流、任务、接力棒或当前执行状态。
 7. V0 采用人工转发和精简状态枚举，不建立复杂状态机。
 8. V1 共享状态库和 V2 Gateway / Event Bus 保留在 `CAND-008`，继续延后。
-9. 新增 `EVAL-GOV-BATON-V0`，覆盖冲突、过期、身份缺失、回传不明及无关引用污染。
+9. LIFE Workspace 作为 V0 用户操作的状态汇总与展示入口，不是其他 Runtime 可直接读取的共享 Operational Source。
+10. 局部执行位冲突只转移对应执行接力棒；只有全局协调状态不明时才转移协调接力棒并暂停全局协调。
+11. 关闭执行位必须记录 `closure_reason`，并区分 `accepted`、`cancelled` 与 `superseded`；用户最终治理权不创造缺少证据的技术完成事实。
+12. `EVAL-GOV-BATON-V0` 覆盖交接证据与时区、局部和全局冲突、关闭原因、LIFE 边界及原有失败安全场景。
 
 ## Consequences
 
@@ -48,7 +51,8 @@ depends_on:
 - V0 仍需用户在 Chat 之间手工转发；
 - 历史消息不会自动刷新；
 - Runtime Adapter 需要在相关任务中按需加载 `GOV-BATON`；
-- LIFE Workspace 或未来 Operational Source 需要自行满足状态持久化、新鲜度与审计要求。
+- V0 仍需要用户从 LIFE Workspace 或其他界面显式转交状态证据，其他 Runtime 不会自动读取或同步该入口；
+- 未来 Operational Source 需要自行满足状态持久化、新鲜度与审计要求。
 
 ## Rejected Alternatives
 
@@ -72,7 +76,7 @@ depends_on:
 
 - `GOV-PROJECT` 在总控与执行 Runtime 协作时触发按需检索 `GOV-BATON`。
 - `GOV-BOOTSTRAP` 在输出接力控制板时执行该路由。
-- `GOV-ASSET-ARCH` 继续维护通用中文用户展示规则，并指向 `GOV-BATON` 的专门协议。
+- `GOV-ASSET-ARCH` 只维护通用中文用户展示规则，不反向引用或规范 `GOV-BATON`；`GOV-BATON` 单向依赖该通用规则。
 - `ARCH-CANDIDATES` 不再保存 V0 规范正文，只保存 V1/V2 后续候选。
 
 ## Rollback
